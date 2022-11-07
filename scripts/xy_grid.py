@@ -1,23 +1,23 @@
+import csv
+import random
+import re
 from collections import namedtuple
 from copy import copy
-from itertools import permutations, chain
-import random
-import csv
 from io import StringIO
-from PIL import Image
-import numpy as np
+from itertools import chain, permutations
 
-import modules.scripts as scripts
 import gradio as gr
-
+import modules.scripts as scripts
+import modules.sd_models
+import modules.sd_samplers
+import modules.shared as shared
+import numpy as np
 from modules import images
 from modules.hypernetworks import hypernetwork
-from modules.processing import process_images, Processed, get_correct_sampler, StableDiffusionProcessingTxt2Img
-from modules.shared import opts, cmd_opts, state
-import modules.shared as shared
-import modules.sd_samplers
-import modules.sd_models
-import re
+from modules.processing import (Processed, StableDiffusionProcessingTxt2Img,
+                                get_correct_sampler, process_images)
+from modules.shared import cmd_opts, opts, state
+from PIL import Image
 
 
 def apply_field(field):
